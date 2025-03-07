@@ -17,7 +17,7 @@ public:
 	~BSALineDraw();
 
 public:
-	void BsaWork();
+	void BsaWork(std::shared_ptr<sf::RenderWindow>window);
 
 	void WantToRedo(std::shared_ptr<sf::RenderWindow>window);
 

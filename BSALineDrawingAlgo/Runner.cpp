@@ -33,13 +33,13 @@ void Runner::SFMLEVENT(){
 
 void Runner::Update(){
     if (Utility::BSA_LINE_DRAW) {
-        this->line.BsaWork();
+        this->line.BsaWork(this->window);
     }
     else if (Utility::CircleDraw) {
-        this->circle.RunAlgo();
+        this->circle.RunAlgo(this->window);
     }
     else if (Utility::FloodFill) {
-        this->floodfill.FloodFillStart();
+        this->floodfill.FloodFillStart(this->window);
     }
 }
 
@@ -48,16 +48,4 @@ void Runner::Draw(){
     window->clear();
     pixels.Draw(window);
     window->display();
-
-
-
-    if (Utility::BSA_LINE_DRAW) {
-        this->line.WantToRedo(this->window);
-    }
-    else if (Utility::CircleDraw) {
-        this->circle.WantToRedo(this->window);
-    }
-    else if (Utility::FloodFill) {
-        this->floodfill.WantToRedo(this->window);
-    }
 }

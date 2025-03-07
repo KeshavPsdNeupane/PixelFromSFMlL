@@ -10,7 +10,7 @@ CircleDrawing::CircleDrawing() :
 CircleDrawing::~CircleDrawing() {}
 
 
-void CircleDrawing::RunAlgo() {
+void CircleDrawing::RunAlgo(std::shared_ptr<sf::RenderWindow>window) {
 	if (this->isFirst) {
 		this->isFirst = false;
 		this->isTakingInput = true;
@@ -24,6 +24,9 @@ void CircleDrawing::RunAlgo() {
 	}
 	else if (this->isWorking) {
 		Algorithm();
+	}
+	else {
+		WantToRedo(window);
 	}
 }
 

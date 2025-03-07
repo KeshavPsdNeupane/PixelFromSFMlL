@@ -15,7 +15,7 @@ public:
 	~CircleDrawing();
 
 public:
-	void RunAlgo();
+	void RunAlgo(std::shared_ptr<sf::RenderWindow>window);
 
 	void WantToRedo(std::shared_ptr<sf::RenderWindow>window);
 

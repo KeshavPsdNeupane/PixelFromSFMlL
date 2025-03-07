@@ -4,6 +4,7 @@
 #include<memory>
 #include<vector>
 #include<stack> 
+#include<queue>
 
 class FloodFillAlgo {
 	bool isFirst;
@@ -16,14 +17,14 @@ class FloodFillAlgo {
 	sf::Vector2f rectangleSize;
 	sf::Vector2i initialPos;
 
-	std::stack<std::shared_ptr<PixelsData>> stack;
+	std::queue<std::shared_ptr<PixelsData>> stack;
 
 public:
 	FloodFillAlgo();
 	~FloodFillAlgo();
 
 public:
-	void FloodFillStart();
+	void FloodFillStart(std::shared_ptr<sf::RenderWindow>window);
 	void WantToRedo(std::shared_ptr<sf::RenderWindow>window);
 
 

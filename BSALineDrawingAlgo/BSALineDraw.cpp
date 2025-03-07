@@ -11,7 +11,7 @@ BSALineDraw::BSALineDraw():
 BSALineDraw::~BSALineDraw(){}
 
 
-void BSALineDraw::BsaWork(){
+void BSALineDraw::BsaWork(std::shared_ptr<sf::RenderWindow>window){
 	if (this->isFirst) {
 		this->isFirst = false;
 		this->isTakingInput = true;
@@ -25,6 +25,9 @@ void BSALineDraw::BsaWork(){
 	}
 	else if (this->isWorking) {
 		BSALineALgo();
+	}
+	else {
+		WantToRedo(window);
 	}
 }
 

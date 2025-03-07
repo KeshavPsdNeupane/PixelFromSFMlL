@@ -9,7 +9,7 @@ FloodFillAlgo::FloodFillAlgo() :
 FloodFillAlgo::~FloodFillAlgo() {}
 
 
-void FloodFillAlgo::FloodFillStart() {
+void FloodFillAlgo::FloodFillStart(std::shared_ptr<sf::RenderWindow>window) {
 	if (this->isFirst) {
 		this->isFirst = false;
 		this->isTakingInput = true;
@@ -27,6 +27,10 @@ void FloodFillAlgo::FloodFillStart() {
 	else if (this->isWorking) {
 		FloodFillAlgoStart();
 	}
+	else {
+		WantToRedo(window);
+	}
+	
 }
 
 void FloodFillAlgo::WantToRedo(std::shared_ptr<sf::RenderWindow>window) {
@@ -54,9 +58,8 @@ void FloodFillAlgo::WantToRedo(std::shared_ptr<sf::RenderWindow>window) {
 }
 
 void FloodFillAlgo::FloodFillAlgoStart() {
-	std::cout << stack.size() << ",";
 	if (!stack.empty()) {
-		std::shared_ptr<PixelsData> top = stack.top();
+		std::shared_ptr<PixelsData> top = stack.front();
 		stack.pop();
 		if (!top->alreadyVisited) {
 			FillThePixel(top);
